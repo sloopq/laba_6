@@ -105,7 +105,7 @@ void swapSort(int* mas, int n)  // Указатель
                 swap(mas[i], mas[j]);
 }
 
-void sort_lines(int x, int y, int arr[100][100])
+void sortLines(int x, int y, int arr[100][100])
 {
     int mas_sum_lines[100];
     int sum_line;
@@ -148,11 +148,10 @@ void sort_lines(int x, int y, int arr[100][100])
 
         if (sameColumns(m,n,a) && isPrimeInMat(m,n,a))
         {
-            sort_lines(m,n,a);
+            sortLines(m,n,a);
         }
         else{
             cout << "матрица не удовлетворяет необходимым условиям" << endl;
-            return 0;
         }
 
         for (int i = 0; i < m; i++)
@@ -163,13 +162,5 @@ void sort_lines(int x, int y, int arr[100][100])
             }
             cout << endl;
         }
-        for (int i = 0; i < m; i++)
-        {
 
-            for (int j = 0; j < n; j++)
-            {
-                cout << a[i][j];
-            }
-            cout << endl;
-        }
         }
