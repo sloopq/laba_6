@@ -1,5 +1,7 @@
 #include <iostream>
+#include <fstream>
 #include <math.h>
+
 using namespace std;
 
 
@@ -23,17 +25,20 @@ double Sum(double a, double b, double c)
 }
 
 
+
+
 int mat(int x, int y, int arr[100][100])
 {
-    for (int i = 0; i < x; i++){
-        for (int j = 0; j < y; j++){
-            cin >> arr[i][j];
+    ifstream in("input.txt");
+    for (int i = 0; i < x; i++)
+    {
+        for (int j = 0; j < y; j++)
+        {
+            in >> arr[i][j];
             //sum += a[i][j];
         }
-
-
     }
-
+    return arr[x][y];
 }
 
 
@@ -75,7 +80,6 @@ bool isPrime(int x)
     {
         if (x%d==0)
             return false;
-
     }
     return true;
 }
@@ -85,7 +89,7 @@ bool isPrimeInMat(int x, int y, int arr[100][100])
     {
         for (int j = 0; j < y; j++)
         {
-            if (isPrime(arr[i][j]) == true)
+            if (isPrime(arr[i][j]))
             {
                 return true;
             }
@@ -135,16 +139,13 @@ void sort_lines(int x, int y, int arr[100][100])
 
     int main()
     {
-        int n, m;
+        int m, n;
         int a[100][100];
-        int num;
-        //int sum;
-        //int minsum = INT_MAX;
-        //int bl0;
         cin >> m;
         cin >> n;
 
         mat(m, n, a);
+
         if (sameColumns(m,n,a) && isPrimeInMat(m,n,a))
         {
             sort_lines(m,n,a);
@@ -153,11 +154,21 @@ void sort_lines(int x, int y, int arr[100][100])
             cout << "матрица не удовлетворяет необходимым условиям" << endl;
             return 0;
         }
+
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
             {
                 cout << a[i][j] << " ";
+            }
+            cout << endl;
+        }
+        for (int i = 0; i < m; i++)
+        {
+
+            for (int j = 0; j < n; j++)
+            {
+                cout << a[i][j];
             }
             cout << endl;
         }
