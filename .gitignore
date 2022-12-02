@@ -1,0 +1,4 @@
+?*.txt
+!new?*.txt
+?*.exe
+!123.txt
